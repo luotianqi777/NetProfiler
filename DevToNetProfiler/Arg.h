@@ -9,8 +9,8 @@ public:
     static bool GetType(COR_PRF_FUNCTION_ARGUMENT_RANGE range, T* output);
     template<typename T>
     static bool GetTypeArray(COR_PRF_FUNCTION_ARGUMENT_RANGE range, T** output, size_t* size);
-    static bool GetString(COR_PRF_FUNCTION_ARGUMENT_RANGE range, std::string* output);
-    static bool GetString(COR_PRF_FUNCTION_ARGUMENT_RANGE range, std::string* output, size_t* size);
+    static bool GetString(COR_PRF_FUNCTION_ARGUMENT_RANGE range,char** output);
+    static bool GetString(COR_PRF_FUNCTION_ARGUMENT_RANGE range,char** output, size_t* size);
 };
 
 template<typename T>

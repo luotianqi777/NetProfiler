@@ -29,12 +29,11 @@ void Hooker::HookAllFuncations(char* funcName, COR_PRF_FUNCTION_ARGUMENT_INFO* a
         std::cout << intArg << "\r\n";
         });
     hooker.AddHookFunctnion("StringFn", [ranges]() {
-        std::string str;
+        char* str;
         Arg::GetString(ranges[1], &str);
         std::cout << str << "\r\n";
         });
     hooker.AddHookFunctnion("StructFn", [ranges]() {
-        int args[3];
         UINT_PTR valuePtr = ranges[1].startAddress;
         int* ptr = (int*)valuePtr;
         std::cout << "arguments: Int1 = " << *ptr << ", Int2 = " << *(ptr + 1) << ", Int3 = " << *(ptr + 2) << "\r\n";
@@ -50,7 +49,7 @@ void Hooker::HookAllFuncations(char* funcName, COR_PRF_FUNCTION_ARGUMENT_INFO* a
         });
     hooker.AddHookFunctnion("IntStringFn", [ranges]() {
         int intArg;
-        std::string str;
+        char* str;
         Arg::GetType<int>(ranges[1], &intArg);
         Arg::GetString(ranges[2], &str);
         std::cout << intArg << " " << str << "\r\n";
@@ -61,12 +60,11 @@ void Hooker::HookAllFuncations(char* funcName, COR_PRF_FUNCTION_ARGUMENT_INFO* a
         std::cout << intArg << "\r\n";
         });
     hooker.AddHookFunctnion("StaticStringFn", [ranges]() {
-        std::string str;
+        char* str;
         Arg::GetString(ranges[0], &str);
         std::cout << str << "\r\n";
         });
     hooker.AddHookFunctnion("StaticStructFn", [ranges]() {
-        int args[3];
         UINT_PTR valuePtr = ranges[0].startAddress;
         int* ptr = (int*)valuePtr;
         std::cout << "arguments: Int1 = " << *ptr << ", Int2 = " << *(ptr + 1) << ", Int3 = " << *(ptr + 2) << "\r\n";
@@ -82,17 +80,19 @@ void Hooker::HookAllFuncations(char* funcName, COR_PRF_FUNCTION_ARGUMENT_INFO* a
         });
     hooker.AddHookFunctnion("StaticIntStringFn", [ranges]() {
         int intArg;
-        std::string str;
+        char* str;
         Arg::GetType<int>(ranges[0], &intArg);
         Arg::GetString(ranges[1], &str);
         std::cout << intArg << " " << str << "\r\n";
         });
     // String
+    /*
     hooker.AddHookFunctnion("Insert", [ranges]() {
         int index;
-        std::string str;
+        const char* str;
         Arg::GetType<int>(ranges[1], &index);
         Arg::GetString(ranges[2], &str);
         std::cout << index << " " << str << std::endl;
         });
+	*/
 }

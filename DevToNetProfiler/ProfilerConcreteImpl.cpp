@@ -26,6 +26,7 @@ struct SnapshotClientData {
 
 ProfilerConcreteImpl::ProfilerConcreteImpl() {
   this->ActivateCallbacks = true;
+  this->PHashMap = NULL;
 }
 
 HRESULT ProfilerConcreteImpl::FinalConstruct()
